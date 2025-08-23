@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Silent Check SSO</title>
+  </head>
+  <body>
+    <script>
+      // Required for Keycloak silent SSO
+      parent.postMessage(location.href, location.origin);
+    </script>
+  </body>
+</html>
