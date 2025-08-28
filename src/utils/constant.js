@@ -35,6 +35,11 @@ export const POST_STATUS = {
         color: 'error',
         label: 'Bị từ chối',
     },
+    HIDE: {
+        param: "HIDE",
+        color: 'error',
+        label: 'Ẩn',
+    },
     EXPIRED: {
         param: "EXPIRED",
         color: 'warning',

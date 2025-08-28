@@ -15,3 +15,8 @@ export async function rejectPost({ postId }) {
     const res = await AUTH_REQUEST.delete(`/post-service/api/v1/post/${postId}/reject`);
     return res.data;
 }
+
+export async function hidePost({ postId }) {
+    const res = await AUTH_REQUEST.put(`/post-service/api/v1/post/${postId}/hide`);
+    return res.data;
+}

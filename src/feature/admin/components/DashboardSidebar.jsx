@@ -23,6 +23,7 @@ import {
   getDrawerWidthTransitionMixin,
 } from '../mixins';
 import { POST_STATUS } from '../../../utils/constant';
+import { FaBrain } from 'react-icons/fa6';
 
 function DashboardSidebar({
   expanded = true,
@@ -182,6 +183,13 @@ function DashboardSidebar({
               icon={<MdOutlineRealEstateAgent />}
               href="/post"
               selected={!!matchPath('/post/*', pathname)}
+            />
+            <DashboardSidebarPageItem
+              id="chatbot"
+              title="Cung cấp dữ liệu chatbot"
+              icon={<FaBrain />}
+              href="/chatbot/feed"
+              selected={!!matchPath('/chatbot/feed', pathname)}
             />
           </List>
         </Box>

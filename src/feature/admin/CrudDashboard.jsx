@@ -16,6 +16,7 @@ import {
   formInputCustomizations,
 } from './theme/customizations';
 import PostData from '../post/PostData';
+import FeedChatbot from '../chatbot/FeedChatbot';
 
 const router = createHashRouter([
   {
@@ -40,6 +41,10 @@ const router = createHashRouter([
       {
         path: '/employees/:employeeId/edit',
         Component: EmployeeEdit,
+      },
+      {
+        path: '/chatbot/feed',
+        Component: FeedChatbot,
       },
       // Fallback route for the example routes in dashboard sidebar items
       {

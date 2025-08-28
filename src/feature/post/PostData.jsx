@@ -1,15 +1,16 @@
 import useGetPostByStatus from "./useGetPosts"
 import MiniSpinner from '../../ui/MiniSpinner';
 import EmployeeList from "../admin/components/EmployeeList";
-import PostList from "./PostList";
+import PostListRequest from "./PostListRequest";
+import { useParams } from "react-router-dom";
+import PostListOverview from "./PostListOverview";
 function PostData() {
     const { isLoading, posts, totalElements, size } = useGetPostByStatus()
+    const { status } = useParams()
     if (isLoading) return <MiniSpinner />
-
     return (
-        <PostList isLoading={isLoading} post={posts} size={size} rowCount={totalElements}>
-
-        </PostList>
+        status ? <PostListRequest isLoading={isLoading} post={posts} size={size} rowCount={totalElements} /> :
+            <PostListOverview isLoading={isLoading} post={posts} size={size} rowCount={totalElements} />
     )
 }
 
