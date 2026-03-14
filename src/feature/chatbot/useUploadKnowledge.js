@@ -4,7 +4,7 @@ import { uploadKnowledge as uploadKnowledgeAPI } from "../../service/KnowledeSer
 export default function useUploadKnowledge() {
     const queryClient = useQueryClient()
     const { isPending, mutate: uploadKnowledge } = useMutation({
-        mutationFn: ({ file }) => uploadKnowledgeAPI({ file }),
+        mutationFn: ({ file, docType }) => uploadKnowledgeAPI({ file, docType }),
         onSuccess: () => {
             queryClient.invalidateQueries({
                 queryKey: ["knowledges"],

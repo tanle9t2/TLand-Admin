@@ -17,6 +17,7 @@ import {
 } from './theme/customizations';
 import PostData from '../post/PostData';
 import FeedChatbot from '../chatbot/FeedChatbot';
+import ChatWithAI from '../chatbot/ChatWithAI';
 
 const router = createHashRouter([
   {
@@ -45,6 +46,10 @@ const router = createHashRouter([
       {
         path: '/chatbot/feed',
         Component: FeedChatbot,
+      },
+      {
+        path: '/chatbot/chat',
+        Component: ChatWithAI,
       },
       // Fallback route for the example routes in dashboard sidebar items
       {

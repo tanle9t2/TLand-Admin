@@ -24,6 +24,7 @@ import {
 } from '../mixins';
 import { POST_STATUS } from '../../../utils/constant';
 import { FaBrain } from 'react-icons/fa6';
+import { IoFileTrayStackedSharp } from 'react-icons/io5';
 
 function DashboardSidebar({
   expanded = true,
@@ -187,9 +188,16 @@ function DashboardSidebar({
             <DashboardSidebarPageItem
               id="chatbot"
               title="Cung cấp dữ liệu chatbot"
-              icon={<FaBrain />}
+              icon={<IoFileTrayStackedSharp />}
               href="/chatbot/feed"
               selected={!!matchPath('/chatbot/feed', pathname)}
+            />
+            <DashboardSidebarPageItem
+              id="chatbot"
+              title="Trợ lý ảo"
+              icon={<FaBrain />}
+              href="/chatbot/chat"
+              selected={!!matchPath('/chatbot/chat', pathname)}
             />
           </List>
         </Box>

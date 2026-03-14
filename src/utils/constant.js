@@ -5,6 +5,10 @@ import { RiContractFill } from "react-icons/ri";
 import { BsDoorOpen, BsBuildings } from "react-icons/bs";
 import { RxDimensions } from "react-icons/rx";
 import { LuPackage2 } from "react-icons/lu";
+
+export const KEYCLOAK_REALM = import.meta.env.VITE_KEYCLOAK_REALM
+export const KEYCLOAK_CLIENTID = import.meta.env.VITE_KEYCLOAK_CLIENTID
+
 export const TYPE_NAME = {
     SELL: "Bán",
     RENT: "Cho thuê"

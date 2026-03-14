@@ -1,8 +1,9 @@
 import { AUTH_REQUEST } from "../utils/axiosConfig";
 
-export async function uploadKnowledge({ file }) {
+export async function uploadKnowledge({ file, docType }) {
     const formData = new FormData();
     formData.append('file', file);
+    if (docType) formData.append('doc_type', docType);
 
     const res = await AUTH_REQUEST.post(`/rag-service/api/v1/chat/feed`, formData, {
         headers: {

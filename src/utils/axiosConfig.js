@@ -2,6 +2,7 @@ import axios from "axios";
 
 import { BASE_URL } from "./Url";
 import { getAccessToken, setLocalStorageToken } from "./helper";
+import { refreshToken } from "../service/UserService";
 // import { refreshToken } from "../services/AuthService";
 
 let retryQueue = [];
@@ -43,8 +44,8 @@ AUTH_REQUEST.interceptors.response.use(
       if (!isRefresh) {
         isRefresh = true;
         try {
-          const token = "await refreshToken()";
-          setLocalStorageToken(token);
+          const token = await refreshToken();
+          setLocalStorageToken(token.access_token);
 
           retryQueue.forEach((req) => {
             AUTH_REQUEST.request(req.config)

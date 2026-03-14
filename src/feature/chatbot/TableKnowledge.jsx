@@ -32,10 +32,15 @@ function TableKnowledge() {
             minWidth: 100,
         },
         {
-            field: "totalChunk",
+            field: "totalChunks",
             headerName: "Tổng chunk",
-            width: 300,
+            width: 200,
 
+        },
+        {
+            field: "docType",
+            headerName: "Loại tài liệu",
+            width: 200,
         },
         {
             field: "createdAt",

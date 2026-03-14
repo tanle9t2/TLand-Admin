@@ -1,30 +1,35 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import toast from "react-hot-toast";
 import useUploadKnowledge from "./useUploadKnowledge";
 import Button from "../../ui/Button";
 
 import TableKnowledge from "./TableKnowledge";
 
+const DOC_TYPES = [
+    { id: "MARKET_ANALYSIS", label: "Thị trường", icon: "📈" },
+    { id: "BANK_LOAN", label: "Vay vốn", icon: "🏦" },
+    { id: "LEGAL", label: "Pháp lý", icon: "⚖️" },
+    { id: "GENERAL", label: "Thông tin chung", icon: "📄" },
+];
+const DOC_TYPE_DEFAULT = DOC_TYPES[0].id
 export default function FeedChatbot() {
     const { isPending: uploadingKnowlegde, uploadKnowledge } = useUploadKnowledge()
     const fileRef = useRef(null)
+    const [selectedDocType, setSelectedDocType] = useState(DOC_TYPE_DEFAULT);
     const handleFileChange = (e) => {
-        console.log(e.target.files)
         const file = e.target.files[0];
-        if (!file) return
-        (uploadKnowledge({ file }, {
+        if (!file) return;
+
+        uploadKnowledge({ file, docType: selectedDocType }, {
             onSuccess: () => {
                 toast.success("Dữ liệu mới đã được thêm vào")
+                if (fileRef.current) fileRef.current.value = "";
             }
-
-        })
-        )
+        });
     };
     return (
         <div className="min-h-screen bg-gray-50 p-8">
             <div className="mx-auto">
-
-
                 <div className="mb-8">
                     <h1 className="text-2xl font-semibold text-gray-800">
                         Quản lý dữ liệu Chatbot
@@ -36,7 +41,30 @@ export default function FeedChatbot() {
 
 
                 <div className="bg-white rounded-2xl shadow-sm border p-8">
-
+                    <div className="mb-8">
+                        <label className="block text-sm font-semibold text-gray-700 mb-4">
+                            Chọn loại nội dung tài liệu:
+                        </label>
+                        <div className="grid grid-cols-6 gap-3">
+                            {DOC_TYPES.map((type) => (
+                                <button
+                                    key={type.id}
+                                    onClick={() => setSelectedDocType(type.id)}
+                                    className={`flex cursor-pointer items-center gap-2.5 px-5 py-2.5 rounded-xl border-2 transition-all duration-300 font-medium text-sm
+                                        ${selectedDocType === type.id
+                                            ? "border-red-500 bg-red-50 text-red-700 shadow-sm"
+                                            : "border-gray-100 bg-gray-50 text-gray-500 hover:border-gray-200 hover:bg-white"
+                                        }`}
+                                >
+                                    <span className="text-lg">{type.icon}</span>
+                                    {type.label}
+                                    {selectedDocType === type.id && (
+                                        <div className="w-2 h-2 rounded-full bg-red-500 ml-1"></div>
+                                    )}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
 
                     <div className="mb-8">
                         <label

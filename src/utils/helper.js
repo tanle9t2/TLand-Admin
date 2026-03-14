@@ -5,7 +5,8 @@ export const getAccessToken = () => {
 };
 
 export const getRefreshToken = () => {
-    const token = window.localStorage.getItem("auth_token");
+    const token = window.localStorage.getItem("refresh_token");
+    console.log(token)
     if (token == null) return null;
     return JSON.parse(token).refreshToken;
 };
@@ -24,7 +25,7 @@ export const setLocalStorageRefreshToken = (token) => {
 };
 
 export const removeLocalStorageToken = () => {
-    window.localStorage.removeItem("auth_token");
+    window.localStorage.removeItem("ROCP_token");
 };
 export const removeLocalStorageRefreshToken = () => {
     window.localStorage.removeItem("refresh_token");

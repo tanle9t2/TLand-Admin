@@ -1,5 +1,26 @@
+import axios from "axios";
 import { API, AUTH_REQUEST } from "../utils/axiosConfig";
+import { getRefreshToken } from "../utils/helper";
+import { KEYCLOAK_TOKEN_ENDPOINT } from "../utils/Url";
+export async function refreshToken() {
+    const params = new URLSearchParams();
+    params.append("grant_type", "refresh_token");
+    params.append("client_id", "tland-react");
+    params.append("refresh_token", getRefreshToken());
 
+    const res = await axios.post(
+        KEYCLOAK_TOKEN_ENDPOINT,
+        params,
+        {
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+        }
+    );
+
+    if (res.status !== 200) throw new Error("Error fetching");
+    return res.data;
+}
 export async function getUSerProfile() {
     const res = await AUTH_REQUEST.get(`/user-service/api/v1/user/profile`)
     return res.data;
