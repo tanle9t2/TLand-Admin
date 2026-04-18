@@ -7,7 +7,7 @@ import { RxDimensions } from "react-icons/rx";
 import { LuPackage2 } from "react-icons/lu";
 
 export const KEYCLOAK_REALM = import.meta.env.VITE_KEYCLOAK_REALM
-export const KEYCLOAK_CLIENTID = import.meta.env.VITE_KEYCLOAK_CLIENTID
+export const KEYCLOAK_CLIENT_ID = import.meta.env.VITE_KEYCLOAK_CLIENT_ID
 
 export const TYPE_NAME = {
     SELL: "Bán",

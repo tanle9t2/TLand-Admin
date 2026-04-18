@@ -4,16 +4,28 @@
 @layer components {
   @keyframes loading {
     20% {
-      background-position: 0% 0%, 50% 50%, 100% 50%;
+      background-position:
+        0% 0%,
+        50% 50%,
+        100% 50%;
     }
     40% {
-      background-position: 0% 100%, 50% 0%, 100% 50%;
+      background-position:
+        0% 100%,
+        50% 0%,
+        100% 50%;
     }
     60% {
-      background-position: 0% 50%, 50% 100%, 100% 0%;
+      background-position:
+        0% 50%,
+        50% 100%,
+        100% 0%;
     }
     80% {
-      background-position: 0% 50%, 50% 50%, 100% 100%;
+      background-position:
+        0% 50%,
+        50% 50%,
+        100% 100%;
     }
   }
 
@@ -61,7 +73,9 @@
 *::after {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-  transition: background-color 0.3s, border 0.3s;
+  transition:
+    background-color 0.3s,
+    border 0.3s;
 }
 
 html {
@@ -87,7 +101,7 @@ img {
 
 /* ---------------- CUSTOM CLASSES ---------------- */
 .chat-bg {
-  background-image: url("../public/Image/chat-bg.png");
+  background-image: url("../Image/chat-bg.png");
 }
 
 .no-scrollbar::-webkit-scrollbar {
