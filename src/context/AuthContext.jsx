@@ -18,7 +18,7 @@ function AuthProvider({ children }) {
             .init({
                 onLoad: "check-sso",
                 silentCheckSsoRedirectUri:
-                    window.location.origin + "/silent-check-sso.html"
+                    window.location.origin + "/tland-admin/silent-check-sso.html"
             })
             .then((auth) => {
                 if (!keycloak.hasRealmRole("ROLE_ADMIN")) {

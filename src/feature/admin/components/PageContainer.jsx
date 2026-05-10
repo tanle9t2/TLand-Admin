@@ -41,7 +41,7 @@ function PageContainer(props) {
   const { children, breadcrumbs, title, actions = null } = props;
 
   return (
-    <Container sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+    <Container maxWidth={false} sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
       <Stack sx={{ flex: 1, my: 2 }} spacing={2}>
         <Stack>
           <PageHeaderBreadcrumbs
@@ -80,7 +80,7 @@ function PageContainer(props) {
           {children}
         </Box>
       </Stack>
-    </Container>
+    </Container >
   );
 }
 

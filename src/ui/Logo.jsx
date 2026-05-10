@@ -7,7 +7,7 @@ function Logo() {
     <div onClick={() => navigate("/")} className="cursor-pointer">
       <img
         className="w-[188px] h-[130px] object-contain"
-        src="/logo.png"
+        src="/tland-admin/logo.png"
       />
     </div>
   );

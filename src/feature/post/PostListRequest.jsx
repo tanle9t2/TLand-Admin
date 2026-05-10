@@ -11,7 +11,6 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useLocation, useNavigate, useSearchParams } from 'react-router';
 import { useDialogs } from '../admin/hooks/useDialogs/useDialogs';
-import useNotifications from '../admin/hooks/useNotifications/useNotifications';
 import PageContainer from '../admin/components/PageContainer';
 import { convertDate } from '../../utils/helper';
 import Chip from '@mui/material/Chip';
@@ -30,7 +29,6 @@ export default function PostList({ isLoading, post, rowCount }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const dialogs = useDialogs();
-  const notifications = useNotifications();
   const { isPending, acceptPost } = useAcceptPost()
   const { isPending: rejectingPost, rejectPost } = useRejectPost()
 

@@ -32,18 +32,6 @@ const router = createHashRouter([
         Component: PostData,
       },
       {
-        path: '/employees/:employeeId',
-        Component: EmployeeShow,
-      },
-      {
-        path: '/employees/new',
-        Component: EmployeeCreate,
-      },
-      {
-        path: '/employees/:employeeId/edit',
-        Component: EmployeeEdit,
-      },
-      {
         path: '/chatbot/feed',
         Component: FeedChatbot,
       },
@@ -51,7 +39,6 @@ const router = createHashRouter([
         path: '/chatbot/chat',
         Component: ChatWithAI,
       },
-      // Fallback route for the example routes in dashboard sidebar items
       {
         path: '*',
         Component: PostData,
